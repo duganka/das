@@ -37,7 +37,7 @@ public class Product implements ToTsv {
 
     @Override
     public String toTsv() {
-        return TsvUtil.JOINER.join(category, subCategory, price);
+        return TsvUtil.JOINER.join(category, subCategory, name, price);
     }
 
     @Override

@@ -12,7 +12,7 @@ CREATE EXTERNAL TABLE visited_products(
     PRODUCT_SUB_CATEGORY string,
     PRODUCT_NAME string,
     PRODUCT_PRICE float,
-    AD_CLICK boolean
+    AD_CLICK string
 )
 PARTITIONED BY (
     YEAR int,

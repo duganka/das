@@ -30,7 +30,7 @@ public class UserRegistry {
 
     private static String randomName(final int length) {
         Preconditions.checkArgument(length > 1);
-        return RandomStringUtils.randomAlphabetic(1).toUpperCase() + RandomStringUtils.randomAlphabetic(length - 1);
+        return RandomStringUtils.randomAlphabetic(1).toUpperCase() + RandomStringUtils.randomAlphabetic(length - 1).toLowerCase();
     }
 
 }
