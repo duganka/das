@@ -1,12 +1,12 @@
 package com.github.duganka.das.domain;
 
-import com.github.duganka.das.util.CsvUtil;
+import com.github.duganka.das.util.TsvUtil;
 import org.joda.time.DateTime;
 
 /**
  * @author vadik
  */
-public class ProductPurchaseEvent implements ToCsv {
+public class ProductPurchaseEvent implements ToTsv {
 
     private final DateTime timestamp;
     private final User user;
@@ -43,8 +43,8 @@ public class ProductPurchaseEvent implements ToCsv {
     }
 
     @Override
-    public String toCsv() {
-        return CsvUtil.JOINER.join(CsvUtil.toCsv(timestamp), user.toCsv(), product.toCsv(), paymentType, deliveryType);
+    public String toTsv() {
+        return TsvUtil.JOINER.join(TsvUtil.toTsv(timestamp), user.toTsv(), product.toTsv(), paymentType, deliveryType);
     }
 
     @Override

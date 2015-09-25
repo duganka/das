@@ -6,14 +6,14 @@ import org.joda.time.DateTime;
 /**
  * @author vadik
  */
-public class CsvUtil {
+public class TsvUtil {
 
-    public static final Joiner JOINER = Joiner.on(",");
+    public static final Joiner JOINER = Joiner.on('\t');
 
-    private CsvUtil() {
+    private TsvUtil() {
     }
 
-    public static String toCsv(final DateTime timestamp) {
+    public static String toTsv(final DateTime timestamp) {
         return JOINER.join(timestamp.toString("yyyy"), timestamp.toString("MM"), timestamp.toString("dd"), timestamp.toString("HH:mm:ss SSS"));
     }
 

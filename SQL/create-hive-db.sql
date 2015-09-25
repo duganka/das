@@ -19,7 +19,7 @@ PARTITIONED BY (
     MONTH int,
     DAY int
 )
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
 LOCATION "/data/visited_products/";
 
@@ -40,7 +40,6 @@ PARTITIONED BY (
     MONTH int,
     DAY int
 )
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
 LOCATION "/data/bought_products/";
-

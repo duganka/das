@@ -50,11 +50,11 @@ public class EventsGenerator {
                     user = userRegistry.randomUser();
                     product = productCatalog.randomProduct();
                     final ProductViewEvent event = new ProductViewEvent(timestamp, user, product, ThreadLocalRandom.current().nextBoolean());
-                    producer.send(new ProducerRecord<String, String>(VISITED_PRODUCTS, event.toCsv()));
+                    producer.send(new ProducerRecord<String, String>(VISITED_PRODUCTS, event.toTsv()));
                 }
 
                 final ProductPurchaseEvent event = new ProductPurchaseEvent(timestamp, user, product, PaymentType.randomType(), DeliveryType.randomType());
-                producer.send(new ProducerRecord<String, String>(BOUGHT_PRODUCTS, event.toCsv()));
+                producer.send(new ProducerRecord<String, String>(BOUGHT_PRODUCTS, event.toTsv()));
 
                 if (count % 1000 == 0) {
                     System.out.println("Current ts = " + timestamp);

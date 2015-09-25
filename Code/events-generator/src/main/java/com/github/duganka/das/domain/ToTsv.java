@@ -3,8 +3,8 @@ package com.github.duganka.das.domain;
 /**
  * @author vadik
  */
-public interface ToCsv {
+public interface ToTsv {
 
-    String toCsv();
+    String toTsv();
 
 }

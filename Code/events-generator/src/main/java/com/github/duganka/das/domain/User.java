@@ -1,11 +1,11 @@
 package com.github.duganka.das.domain;
 
-import com.github.duganka.das.util.CsvUtil;
+import com.github.duganka.das.util.TsvUtil;
 
 /**
  * @author vadik
  */
-public class User implements ToCsv {
+public class User implements ToTsv {
 
     private final long id;
     private final String firstName;
@@ -30,8 +30,8 @@ public class User implements ToCsv {
     }
 
     @Override
-    public String toCsv() {
-        return CsvUtil.JOINER.join(id, firstName, lastName);
+    public String toTsv() {
+        return TsvUtil.JOINER.join(id, firstName, lastName);
     }
 
     @Override

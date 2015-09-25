@@ -1,11 +1,11 @@
 package com.github.duganka.das.domain;
 
-import com.github.duganka.das.util.CsvUtil;
+import com.github.duganka.das.util.TsvUtil;
 
 /**
  * @author vadik
  */
-public class Product implements ToCsv {
+public class Product implements ToTsv {
 
     private final String category;
     private final String subCategory;
@@ -36,8 +36,8 @@ public class Product implements ToCsv {
     }
 
     @Override
-    public String toCsv() {
-        return CsvUtil.JOINER.join(category, subCategory, price);
+    public String toTsv() {
+        return TsvUtil.JOINER.join(category, subCategory, price);
     }
 
     @Override
