@@ -14,7 +14,7 @@ public class TsvUtil {
     }
 
     public static String toTsv(final DateTime timestamp) {
-        return JOINER.join(timestamp.toString("yyyy"), timestamp.toString("MM"), timestamp.toString("dd"), timestamp.toString("HH:mm:ss SSS"));
+        return JOINER.join(timestamp.toString("yyyy"), timestamp.toString("MM"), timestamp.toString("dd"), timestamp.toString("HH:mm:ss.SSS"));
     }
 
 }
