@@ -15,6 +15,7 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeUtils;
 import org.joda.time.DateTimeZone;
 import org.joda.time.Days;
+import org.joda.time.Seconds;
 
 import java.util.Properties;
 import java.util.concurrent.ThreadLocalRandom;
@@ -27,7 +28,7 @@ public class EventsGenerator {
     private static final String VISITED_PRODUCTS = "visited-products";
     private static final String BOUGHT_PRODUCTS = "bought-products";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Preconditions.checkArgument(args.length > 0, "At least one Kafka broker address is expected");
 
         final Properties props = new Properties();
@@ -38,11 +39,19 @@ public class EventsGenerator {
         final UserRegistry userRegistry = new UserRegistry(1000);
         final ProductCatalog productCatalog = new ProductCatalog();
 
+        generateEvents(props, userRegistry, productCatalog, 30);
+        while (true) {
+            Thread.sleep(Seconds.seconds(30).toStandardDuration().getMillis());
+            generateEvents(props, userRegistry, productCatalog, 7);
+        }
+    }
+
+    private static void generateEvents(Properties props, UserRegistry userRegistry, ProductCatalog productCatalog, int lookBackDays) {
         try (final KafkaProducer<String, String> producer = new KafkaProducer<>(props)) {
             final long now = DateTimeUtils.currentTimeMillis();
-            final long monthAgo = now - Days.days(30).toStandardDuration().getMillis();
+            final long monthAgo = now - Days.days(lookBackDays).toStandardDuration().getMillis();
 
-            for (long millis = monthAgo, count = 0; millis <= now; millis += 1000L, ++count) {
+            for (long millis = monthAgo, count = 0; millis <= now; millis += 100000L, ++count) {
                 final DateTime timestamp = new DateTime(millis, DateTimeZone.UTC);
                 User user = null;
                 Product product = null;
