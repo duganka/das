@@ -7,6 +7,7 @@ CREATE TABLE last_day_top_views (
     category VARCHAR(32) NOT NULL,
     sub_category VARCHAR(32) NOT NULL,
     name VARCHAR(32) NOT NULL,
+    views BIGINT NOT NULL,
     PRIMARY KEY(category, sub_category)
 );
 
@@ -15,6 +16,7 @@ CREATE TABLE last_week_top_views (
     category VARCHAR(32) NOT NULL,
     sub_category VARCHAR(32) NOT NULL,
     name VARCHAR(32) NOT NULL,
+    views BIGINT NOT NULL,
     PRIMARY KEY(category, sub_category)
 );
 
@@ -23,6 +25,7 @@ CREATE TABLE last_day_top_sales (
     category VARCHAR(32) NOT NULL,
     sub_category VARCHAR(32) NOT NULL,
     name VARCHAR(32) NOT NULL,
+    sales BIGINT NOT NULL,
     PRIMARY KEY(category, sub_category)
 );
 
@@ -31,5 +34,6 @@ CREATE TABLE last_week_top_sales (
     category VARCHAR(32) NOT NULL,
     sub_category VARCHAR(32) NOT NULL,
     name VARCHAR(32) NOT NULL,
+    sales BIGINT NOT NULL,
     PRIMARY KEY(category, sub_category)
 );
