@@ -2,7 +2,7 @@
 
 set -x
 
-sudo su - hdfs
+# Should be run by hdfs user
 hadoop fs -mkdir -p /data/bought-products
 hadoop fs -mkdir -p /data/visited-products
 hadoop fs -chmod 777 /data
