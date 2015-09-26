@@ -15,9 +15,7 @@ CREATE EXTERNAL TABLE visited_products(
     AD_CLICK string
 )
 PARTITIONED BY (
-    YEAR int,
-    MONTH int,
-    DAY int
+    date string
 )
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
@@ -36,9 +34,7 @@ CREATE EXTERNAL TABLE bought_products(
     DELIVERY_TYPE string
 )
 PARTITIONED BY (
-    YEAR int,
-    MONTH int,
-    DAY int
+    date string
 )
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE

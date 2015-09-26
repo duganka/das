@@ -1,5 +1,6 @@
 USE das;
 
+CREATE TABLE ${hiveconf:RESULT_TABLE} AS
 SELECT category, sub_category, name
 FROM (
     SELECT
@@ -18,9 +19,7 @@ FROM (
         FROM
             visited_products vp
         WHERE
-            vp.YEAR = YEAR(FROM_UNIXTIME(UNIX_TIMESTAMP())) AND
-            vp.MONTH = MONTH(FROM_UNIXTIME(UNIX_TIMESTAMP())) AND
-            vp.DAY >= DAY(FROM_UNIXTIME(UNIX_TIMESTAMP())) - 1
+            vp.date >= ${hiveconf:START_DATE}
         GROUP BY PRODUCT_CATEGORY, PRODUCT_SUB_CATEGORY, PRODUCT_NAME
     ) a
 ) b
