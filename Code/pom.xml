@@ -33,6 +33,7 @@
 
     <modules>
         <module>events-generator</module>
+        <module>distribution</module>
     </modules>
 
     <build>
