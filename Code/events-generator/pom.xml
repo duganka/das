@@ -46,6 +46,8 @@
                     <archive>
                         <manifest>
                             <mainClass>com.github.duganka.das.EventsGenerator</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib</classpathPrefix>
                         </manifest>
                     </archive>
                 </configuration>
